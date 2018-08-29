@@ -20,15 +20,9 @@ namespace WPFClock
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
 
-        private void Window_Activated(object sender, EventArgs e)
-        {
-            RunUpdate();
-        }
+        private void Window_Activated(object sender, EventArgs e) => RunUpdate();
 
         private async void RunUpdate()
         {
