@@ -24,5 +24,23 @@ namespace WPFClock
         {
             InitializeComponent();
         }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            RunUpdate();
+        }
+
+        private async void RunUpdate()
+        {
+            while (true)
+            {
+                await Dispatcher.InvokeAsync(() =>
+                {
+                    var now = DateTime.Now;
+                    lblTime.Content = $"{now.ToLongDateString()} {now.ToLongTimeString()}";
+                });
+                await Task.Delay(100);
+            }
+        }
     }
 }
